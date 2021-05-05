@@ -1,0 +1,59 @@
+##
+## Global configuration
+global:
+  ##
+  ## The Stripe secret key from your Stripe account dashboard. 
+  ## Required if you want Stripe payments to work.
+  stripeKey: YOUR_PRIVATE_STRIPE_API_KEY
+
+  ##
+  ## Set this if you want to track storefront analytics such as 
+  ## page views with Segment. You can find this key on your Segment dashboard.
+  segmentKey: YOUR_PRIVATE_SEGMENT_API_KEY
+
+  ##
+  ## The MongoDB database URL.
+  ## Note: This overrides the Mongo subchart values i.e. bring your own
+  # mongoUrl: 
+
+  ##
+  ## The oplog URL for the MongoDB deployment.
+  ## Note: This overrides the Mongo subchart values i.e. bring your own
+  # mongoOplogUrl: 
+
+
+web:
+  enabled: false
+  host: myshop.craflo.com
+  ssl: true
+  url: myshop.craflo.com
+  replicaCount: 1
+  sessionSecret: CHANGEME
+  image:
+    repository: craflo-web
+    pullPolicy: IfNotPresent
+  service:
+    annotations: {}
+    type: ClusterIP
+  ingress:
+    enabled: true
+    path: "/"
+    annotations: {}
+    livenessPath:
+    tls:
+      enabled: true
+      secretName: tls-secret
+
+api:
+  url: api.craflo.com
+
+hydra:
+  frontend:
+    host: access.craflo.com
+  admin:
+    host: oauth2.craflo.com
+
+identity:
+  url: accounts.craflo.com
+
+
