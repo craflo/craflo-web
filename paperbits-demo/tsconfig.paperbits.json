@@ -1,0 +1,43 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": [
+      "es2018",
+      "dom"
+    ],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "declaration": false,
+    "noImplicitAny": false,
+    "noStrictGenericChecks": true,
+    "removeComments": true,
+    "noLib": false,
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "allowUnreachableCode": true,
+    "listFiles": false,
+    "sourceMap": false,
+    "allowSyntheticDefaultImports": true,
+    "incremental": true,
+    "jsx": "react",
+    "baseUrl": "src"
+  },
+  "exclude": [
+    "./node_modules",
+    "src/assets",
+    "src/components",
+    "src/contexts",
+    "src/pages",
+
+    "src/layouts",
+    "src/site-settings",
+    "src/themes",
+    "src/utils",
+    "src/data"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ]
+}

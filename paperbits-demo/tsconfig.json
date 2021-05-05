@@ -1,0 +1,54 @@
+{
+    "compilerOptions": {
+        "target": "es6",
+        "lib": [
+            "es2018",
+            "dom",
+            "dom.iterable",
+//            "esnext"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": false,
+        "noImplicitAny": false,
+        "noStrictGenericChecks": true,
+        "removeComments": true,
+        "noLib": false,
+        "skipLibCheck": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "allowUnreachableCode": true,
+        "listFiles": false,
+        "sourceMap": false,
+        "allowSyntheticDefaultImports": true,
+        "incremental": true,
+        "jsx": "preserve",
+        "baseUrl": "src",
+        "allowJs": true,
+
+        "strict": false,
+//        "forceConsistentCasingInFileNames": true,
+//        "noEmit": true,
+//        "esModuleInterop": true,
+        "resolveJsonModule": true,
+//        "isolatedModules": true,
+    },
+    "exclude": [
+        "./node_modules",
+        "src/assets",
+//        "src/components",
+
+        "src/pb-components",
+        "src/contexts",
+        "src/pages",
+        "src/layouts",
+        "src/site-settings",
+        "src/themes",
+        "src/utils",
+        "src/data"
+    ],
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx"
+    ]
+}

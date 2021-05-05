@@ -1,0 +1,37 @@
+apiVersion: skaffold/v2beta13
+kind: Config
+build:
+  local:
+    push: true
+    useDockerCLI: true
+  tagPolicy:
+    gitCommit: {}
+  artifacts:
+
+    - image: web
+      context: ./paperbits-demo
+      docker:
+        buildArgs:
+          DEBUG: 1
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          # Sync all the javascript files that are in the src folder
+          # with the container src folder
+          - src: '**/*'
+            dest: '/usr/local/src/app'
+
+deploy:
+  statusCheckDeadlineSeconds: 300
+  helm:    # beta uses the helm CLI to apply the charts to the cluster.
+    releases:    # a list of Helm releases.
+
+      - name: 'craflo-web'
+        version: 0.1.0
+        chartPath: './craflo-web-charts'
+        valuesFiles: ['./web-release.yaml']
+        namespace: craflo-system
+        artifactOverrides:
+          web:
+            image:
+              repository: web
